@@ -6,13 +6,15 @@ import java.time.Instant;
 import java.util.Arrays;
 import java.util.Set;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.hamcrest.CoreMatchers.hasItems;
+import static org.junit.Assert.*;
 
 public class ExtractTest {
 
 	/*
 	 * Testing strategy
+	 *
+	 * GetTimespan
 	 *
 	 * cover the cartesian product of these partitions:
 	 * partition on a: UNIX Epoch time 1970-01-01T00:00:00Z
@@ -30,6 +32,16 @@ public class ExtractTest {
 	 * both > UNIX Epoch time but < current time
 	 * both > current time
 	 * both = UNIX Epoch time
+	 *
+	 * ------------------------------------------------------
+	 * GetMentionedUsers
+	 *
+	 * partition
+	 * username before | after the @
+	 * username is consisted by {A..Z, a..z, 0..9, _, - } or there are other character exists
+	 * case-insensitive @Adam and @aDam exist in the same text
+	 * text.length = 0 | text.length > 0 | text.length < 0
+	 *
 	 */
 
 	private static final Instant d1 = Instant.parse("2016-02-17T10:00:00Z");
@@ -110,11 +122,98 @@ public class ExtractTest {
 		assertEquals("expected end", d10, timespan.getEnd());
 	}
 
+	private static final Instant d13 = Instant.parse("1969-01-01T11:21:12Z");
+	private static final Instant d14 = Instant.parse("1969-01-01T11:21:22Z");
+	private static final Tweet tweet13 = new Tweet(1, "Lisa", "is it reasonable to talk about Adam@ rivest so much?", d13);
+	private static final Tweet tweet14 = new Tweet(2, "Luka", "rivest talk in @Chris 30 minutes #hype", d14);
+
+	// covers username written before @ e.g. Adam@ | After @ e.g. @Chris
 	@Test
-	public void testGetMentionedUsersNoMention() {
-		Set<String> mentionedUsers = Extract.getMentionedUsers(Arrays.asList(tweet1));
+	public void testGetMentionedUsersBeforeAtSymbol() {
+		Set<String> mentionedUsers = Extract.getMentionedUsers(Arrays.asList(tweet13, tweet14));
+
+		assertEquals("number of mentioned users is 1", 1, mentionedUsers.size());
+		assertThat("mentionedUsers should contain Chris", mentionedUsers, hasItems("Chris"));
+	}
+
+	private static final Instant d15 = Instant.parse("1969-01-01T11:21:12Z");
+	private static final Instant d16 = Instant.parse("1969-01-01T11:21:22Z");
+	private static final Tweet tweet15 = new Tweet(1, "Lisa", "is it reasonable to talk about @Adam_123_-12  rivest so much?", d15);
+	private static final Tweet tweet16 = new Tweet(2, "Luka", "rivest talk in @Chris 30 minutes #hype", d16);
+
+	// covers username written using required characters e.g @Adam_123_-12
+	@Test
+	public void testGetMentionedUsersUsingRequiredCharacters() {
+		Set<String> mentionedUsers = Extract.getMentionedUsers(Arrays.asList(tweet15, tweet16));
+
+		assertEquals("number of mentioned users is 2", 2, mentionedUsers.size());
+		assertThat("mentionedUsers should contain Chris", mentionedUsers, hasItems("Chris", "Adam_123_-12"));
+	}
+
+	private static final Instant d17 = Instant.parse("1969-01-01T11:21:12Z");
+	private static final Instant d18 = Instant.parse("1969-01-01T11:21:22Z");
+	private static final Tweet tweet17 = new Tweet(1, "Lisa", "is it reasonable to talk about @+Adam=  rivest so much?", d17);
+	private static final Tweet tweet18 = new Tweet(2, "Luka", "rivest talk in @mit.edu 30 minutes #hype", d18);
+
+	// covers username written using non-required characters @+Adam=
+	@Test
+	public void testGetMentionedUsersUsingNonRequiredCharacters() {
+		Set<String> mentionedUsers = Extract.getMentionedUsers(Arrays.asList(tweet17, tweet18));
 
 		assertTrue("expected empty set", mentionedUsers.isEmpty());
+	}
+
+	private static final Instant d19 = Instant.parse("1969-01-01T11:21:12Z");
+	private static final Instant d20 = Instant.parse("1969-01-01T11:21:22Z");
+	private static final Tweet tweet19 = new Tweet(1, "Lisa", "", d19);
+	private static final Tweet tweet20 = new Tweet(2, "Luka", "", d20);
+
+	// covers text.length = 0
+	@Test
+	public void testGetMentionedUsersTextLengthEqualToZero() {
+		Set<String> mentionedUsers = Extract.getMentionedUsers(Arrays.asList(tweet19, tweet20));
+
+		assertTrue("expected empty set", mentionedUsers.isEmpty());
+	}
+
+	private static final Instant d21 = Instant.parse("1969-01-01T11:21:12Z");
+	private static final Instant d22 = Instant.parse("1969-01-01T11:21:22Z");
+	private static final Tweet tweet21 = new Tweet(1, "Lisa", "is it reasonable to talk about @+Adam=  rivest so much?", d21);
+	private static final Tweet tweet22 = new Tweet(2, "Luka", "rivest talk in @mit.edu 30 minutes #hype", d22);
+
+	// covers username followed by invalid characters e.g. @Adam=
+	@Test
+	public void testGetMentionedUsersFollowedByInvalidCharacters() {
+		Set<String> mentionedUsers = Extract.getMentionedUsers(Arrays.asList(tweet21, tweet22));
+
+		assertTrue("expected empty set", mentionedUsers.isEmpty());
+	}
+
+	private static final Instant d23 = Instant.parse("1969-01-01T11:21:12Z");
+	private static final Instant d24 = Instant.parse("1969-01-01T11:21:22Z");
+	private static final Tweet tweet23 = new Tweet(1, "Lisa", "is it reasonable to talk about @+Adam rivest so much?", d23);
+	private static final Tweet tweet24 = new Tweet(2, "Luka", "rivest talk in bitdiddle@mit.edu 30 minutes #hype", d24);
+
+	// covers username preceded by invalid characters e.g. @+Adam
+	@Test
+	public void testGetMentionedUsersPrecededByInvalidCharacters() {
+		Set<String> mentionedUsers = Extract.getMentionedUsers(Arrays.asList(tweet23, tweet24));
+
+		assertTrue("expected empty set", mentionedUsers.isEmpty());
+	}
+
+	private static final Instant d25 = Instant.parse("1969-01-01T11:21:12Z");
+	private static final Instant d26 = Instant.parse("1969-01-01T11:21:22Z");
+	private static final Tweet tweet25 = new Tweet(1, "Lisa", "is it reasonable to talk about @+Adam rivest so much?@Adam", d25);
+	private static final Tweet tweet26 = new Tweet(2, "Luka", "rivest talk in bitdiddle@mit.edu 30 minutes #hype", d26);
+
+	// covers username at the end of the text
+	@Test
+	public void testGetMentionedUsersAtEndOfText() {
+		Set<String> mentionedUsers = Extract.getMentionedUsers(Arrays.asList(tweet25, tweet26));
+
+		assertEquals("number of mentioned users is 1", 1, mentionedUsers.size());
+		assertThat("mentionedUsers should contain Chris", mentionedUsers, hasItems("Adam"));
 	}
 
 	/*

@@ -1,9 +1,6 @@
 package twitter;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Extract consists of methods that extract information from a list of tweets.
@@ -52,7 +49,76 @@ public class Extract {
 	 * include a username at most once.
 	 */
 	public static Set<String> getMentionedUsers(List<Tweet> tweets) {
-		throw new RuntimeException("not implemented");
+		Set<String> mentionedUsernames = new HashSet<>();
+
+		for (Tweet tweet : tweets) {
+			mentionedUsernames.addAll(getMentionedUsersOfSingleTweet(tweet));
+		}
+
+		return mentionedUsernames;
+	}
+
+	private static Set<String> getMentionedUsersOfSingleTweet(Tweet tweet) {
+		Set<String> mentionedUsernames = new HashSet<>();
+		List<Integer> locationOfAtSymbol = getLocationOfAtSymbol(tweet);
+		String text = tweet.getText();
+		int sizeOfLocationOfAtSymbol = locationOfAtSymbol.size();
+		int start, end;
+
+		for (int i = 0; i < sizeOfLocationOfAtSymbol; i++) {
+			start = locationOfAtSymbol.get(i);
+			end = text.length();
+			if (i != sizeOfLocationOfAtSymbol - 1) {
+				end = locationOfAtSymbol.get(i + 1);
+			}
+			String mentionedUsername = generateMentionedUsernameBySingleIndex(text, start, end);
+			if (!mentionedUsername.isEmpty()) {
+				mentionedUsernames.add(mentionedUsername);
+			}
+		}
+		return mentionedUsernames;
+	}
+
+
+	private static String generateMentionedUsernameBySingleIndex(String text, Integer start, Integer end) {
+		StringBuilder mentionedUsername = new StringBuilder();
+		if (start + 1 == text.length() - 1) {
+			return mentionedUsername.toString();
+		}
+
+		for (int i = start + 1; i < end; i++) {
+			char character = text.charAt(i);
+			if (isRequiredCharacter(character)) {
+				mentionedUsername.append(character);
+			}
+			if (!isRequiredCharacter(character) && character == ' ') {
+				break;
+			}
+			if (!isRequiredCharacter(character) && character != ' ') {
+				mentionedUsername = new StringBuilder();
+				break;
+			}
+		}
+
+		return mentionedUsername.toString();
+	}
+
+	private static List<Integer> getLocationOfAtSymbol(Tweet tweet) {
+		List<Integer> locationOfAtSymbol = new ArrayList<>(1000);
+
+		for (int i = 0; i < tweet.getText().length(); i++) {
+			char character = tweet.getText().charAt(i);
+			if (character == '@') {
+				locationOfAtSymbol.add(i);
+			}
+		}
+		return locationOfAtSymbol;
+	}
+
+	private static boolean isRequiredCharacter(char c) {
+		if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || (c >= '0' && c <= '9') || c == '-' || c == '_')
+			return true;
+		return false;
 	}
 
 	/* Copyright (c) 2007-2016 MIT 6.005 course staff, all rights reserved.
