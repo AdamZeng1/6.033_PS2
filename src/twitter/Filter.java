@@ -1,8 +1,10 @@
 package twitter;
 
 import twitter.exception.NullOrEmptyAuthorException;
+import twitter.exception.NullTimestampException;
 import twitter.exception.UnqualifiedUsernameException;
 
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -73,8 +75,30 @@ public class Filter {
 	 * @return all and only the tweets in the list that were sent during the timespan,
 	 * in the same order as in the input list.
 	 */
-	public static List<Tweet> inTimespan(List<Tweet> tweets, Timespan timespan) {
-		throw new RuntimeException("not implemented");
+	public static List<Tweet> inTimespan(List<Tweet> tweets, Timespan timespan) throws NullTimestampException {
+		List<Tweet> result = new ArrayList<>();
+		if (timespan == null) {
+			throw new NullTimestampException("timestamp of timespan is null");
+		}
+
+		for (Tweet tweet : tweets) {
+			Instant timestamp = tweet.getTimestamp();
+			Instant start = timespan.getStart();
+			Instant end = timespan.getEnd();
+			if (timestamp == null) {
+				throw new NullTimestampException("timestamp of tweet is null");
+			}
+
+			if (timestamp.equals(start) || timestamp.equals(end)) {
+				result.add(tweet);
+			}
+
+			if (timestamp.isAfter(start) && timestamp.isBefore(end)) {
+				result.add(tweet);
+			}
+		}
+
+		return result;
 	}
 
 	/**
