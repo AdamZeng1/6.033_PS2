@@ -82,7 +82,55 @@ public class SocialNetwork {
 	 * descending order of follower count.
 	 */
 	public static List<String> influencers(Map<String, Set<String>> followsGraph) {
-		throw new RuntimeException("not implemented");
+		Map<String, Integer> followersNumberOfUsers = new HashMap<String, Integer>();
+		for (String author : followsGraph.keySet()) {
+			Set<String> followedUsers = followsGraph.get(author);
+			for (String username : followedUsers) {
+				if (followersNumberOfUsers.containsKey(username)) {
+					int number = followersNumberOfUsers.get(username);
+					number++;
+					followersNumberOfUsers.put(username, number);
+				} else {
+					followersNumberOfUsers.put(username, 1);
+				}
+			}
+		}
+
+		List<String> result = convertMapToOrderList(followersNumberOfUsers);
+		return result;
+	}
+
+
+	private static List<String> convertMapToOrderList(Map<String, Integer> followersNumberOfUsers) {
+		List<String> result = new ArrayList<>(1000);
+		Set<Map.Entry<String, Integer>> entries = followersNumberOfUsers.entrySet();
+
+		Comparator<Map.Entry<String, Integer>> valueComparator = new Comparator<Map.Entry<String, Integer>>() {
+			@Override
+			public int compare(Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2) {
+				if (o1.getValue() > o2.getValue()) {
+					return -1;
+				} else if (o1.getValue() < o2.getValue()) {
+					return 1;
+				} else {
+					if (o1.getKey().compareTo(o2.getKey()) > 0) {
+						return 1;
+					} else {
+						return -1;
+					}
+				}
+			}
+		};
+
+		// Sort method needs a List, convert Set to List in Java
+		List<Map.Entry<String, Integer>> listOfEntries = new ArrayList<Map.Entry<String, Integer>>(entries);
+
+		// Sort HashMap by values using comparator
+		Collections.sort(listOfEntries, valueComparator);
+		for (Map.Entry<String, Integer> entry : listOfEntries) {
+			result.add(entry.getKey());
+		}
+		return result;
 	}
 
 	/* Copyright (c) 2007-2016 MIT 6.005 course staff, all rights reserved.

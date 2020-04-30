@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ef1e3c07-b570-4aab-950f-53d1fec490ad" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/twitter/Extract.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/twitter/Extract.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/twitter/Filter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/twitter/Filter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/twitter/SocialNetwork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/twitter/SocialNetwork.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/twitter/SocialNetworkTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/twitter/SocialNetworkTest.java" afterDir="false" />
     </list>
@@ -48,7 +47,7 @@
         <entry file="file://$PROJECT_DIR$/src/twitter/Filter.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="704">
-              <caret line="167" lean-forward="true" selection-start-line="167" selection-end-line="167" />
+              <caret line="167" selection-start-line="167" selection-end-line="167" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#3924#3931#0" expanded="true" />
@@ -64,7 +63,7 @@
         <entry file="file://$PROJECT_DIR$/test/twitter/FilterTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1483">
-              <caret line="450" column="5" lean-forward="true" selection-start-line="450" selection-start-column="5" selection-end-line="450" selection-end-column="5" />
+              <caret line="450" column="5" selection-start-line="450" selection-start-column="5" selection-end-line="450" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -125,7 +124,7 @@
         <entry file="file://$PROJECT_DIR$/src/twitter/exception/UnqualifiedUsernameException.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="34">
-              <caret line="2" column="29" lean-forward="true" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
+              <caret line="2" column="29" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -152,13 +151,22 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/twitter/SocialNetwork.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="517">
-              <caret line="49" column="44" selection-start-line="49" selection-start-column="44" selection-end-line="49" selection-end-column="44" />
+            <state relative-caret-position="506">
+              <caret line="118" column="32" selection-start-line="118" selection-start-column="32" selection-end-line="118" selection-end-column="32" />
+              <folding>
+                <element signature="e#3328#3345#0" expanded="true" />
+                <element signature="e#4475#4502#0" expanded="true" />
+              </folding>
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.classpath">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -243,10 +251,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/twitter/SocialNetworkTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="551">
+            <state relative-caret-position="17">
               <caret line="86" column="72" selection-start-line="86" selection-start-column="72" selection-end-line="86" selection-end-column="72" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -256,10 +264,15 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/src.zip!/java/util/Map.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="440">
-              <caret line="138" column="8" selection-start-line="138" selection-start-column="8" selection-end-line="138" selection-end-column="8" />
+            <state relative-caret-position="116">
+              <caret line="239" column="6" selection-start-line="239" selection-start-column="6" selection-end-line="239" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -294,8 +307,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/src.zip!/java/lang/String.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="621" column="15" selection-start-line="621" selection-start-column="15" selection-end-line="621" selection-end-column="15" />
+            <state relative-caret-position="338">
+              <caret line="1152" column="15" selection-start-line="1152" selection-start-column="15" selection-end-line="1152" selection-end-column="15" />
               <folding>
                 <element signature="e#22786#22787#0" expanded="true" />
                 <element signature="e#22821#22822#0" expanded="true" />
@@ -321,6 +334,7 @@
       <find>NullOrEmptyWordException</find>
       <find>contain</find>
       <find>con</find>
+      <find>update</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -343,8 +357,8 @@
         <option value="$PROJECT_DIR$/test/twitter/FilterTest.java" />
         <option value="$PROJECT_DIR$/src/twitter/Extract.java" />
         <option value="$PROJECT_DIR$/src/twitter/Filter.java" />
-        <option value="$PROJECT_DIR$/src/twitter/SocialNetwork.java" />
         <option value="$PROJECT_DIR$/test/twitter/SocialNetworkTest.java" />
+        <option value="$PROJECT_DIR$/src/twitter/SocialNetwork.java" />
       </list>
     </option>
   </component>
@@ -436,7 +450,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.SocialNetworkTest.testGuessFollowsGraphTextContainsCaseInsensitiveUsername">
+  <component name="RunManager" selected="JUnit.SocialNetworkTest.testInfluencers">
     <configuration default="true" type="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method v="2">
@@ -460,23 +474,6 @@
       <option name="PACKAGE_NAME" value="twitter" />
       <option name="MAIN_CLASS_NAME" value="twitter.SocialNetworkTest" />
       <option name="METHOD_NAME" value="testGuessFollowsGraphAuthorNotCaterNamingRule" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SocialNetworkTest.testGuessFollowsGraphEmpty" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ps2-tweets" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="twitter.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="twitter" />
-      <option name="MAIN_CLASS_NAME" value="twitter.SocialNetworkTest" />
-      <option name="METHOD_NAME" value="testGuessFollowsGraphEmpty" />
       <option name="TEST_OBJECT" value="method" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
       <method v="2">
@@ -534,6 +531,23 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="SocialNetworkTest.testInfluencers" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ps2-tweets" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="twitter.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="twitter" />
+      <option name="MAIN_CLASS_NAME" value="twitter.SocialNetworkTest" />
+      <option name="METHOD_NAME" value="testInfluencers" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
@@ -561,11 +575,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.SocialNetworkTest.testInfluencers" />
         <item itemvalue="JUnit.SocialNetworkTest.testGuessFollowsGraphTextContainsCaseInsensitiveUsername" />
         <item itemvalue="JUnit.SocialNetworkTest.testGuessFollowsGraphTextContainsNoUsername" />
         <item itemvalue="JUnit.SocialNetworkTest.testGuessFollowsGraphUsernameEqualsAuthor" />
         <item itemvalue="JUnit.SocialNetworkTest.testGuessFollowsGraphAuthorNotCaterNamingRule" />
-        <item itemvalue="JUnit.SocialNetworkTest.testGuessFollowsGraphEmpty" />
       </list>
     </recent_temporary>
   </component>
@@ -583,26 +597,11 @@
       <workItem from="1587957936038" duration="8927000" />
       <workItem from="1588064534139" duration="7901000" />
       <workItem from="1588125658901" duration="3673000" />
-      <workItem from="1588163706230" duration="13074000" />
+      <workItem from="1588163706230" duration="17965000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="SocialNetworkTest_testGuessFollowsGraphEmpty - 2020.04.30 at 17h 23m 54s.xml">
-      <configuration name="SocialNetworkTest.testGuessFollowsGraphEmpty" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="SocialNetworkTest_testGuessFollowsGraphAuthorNotCaterNamingRule - 2020.04.30 at 17h 23m 57s.xml">
-      <configuration name="SocialNetworkTest.testGuessFollowsGraphAuthorNotCaterNamingRule" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="SocialNetworkTest_testGuessFollowsGraphAuthorNotCaterNamingRule - 2020.04.30 at 17h 24m 15s.xml">
-      <configuration name="SocialNetworkTest.testGuessFollowsGraphAuthorNotCaterNamingRule" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="SocialNetworkTest_testGuessFollowsGraphUsernameEqualsAuthor - 2020.04.30 at 17h 24m 19s.xml">
-      <configuration name="SocialNetworkTest.testGuessFollowsGraphUsernameEqualsAuthor" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="SocialNetworkTest_testGuessFollowsGraphUsernameEqualsAuthor - 2020.04.30 at 17h 24m 50s.xml">
-      <configuration name="SocialNetworkTest.testGuessFollowsGraphUsernameEqualsAuthor" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="SocialNetworkTest_testGuessFollowsGraphUsernameEqualsAuthor - 2020.04.30 at 17h 25m 55s.xml">
       <configuration name="SocialNetworkTest.testGuessFollowsGraphUsernameEqualsAuthor" configurationId="JUnit" />
     </history-entry>
@@ -618,9 +617,24 @@
     <history-entry file="SocialNetworkTest_testGuessFollowsGraphTextContainsNoUsername - 2020.04.30 at 17h 27m 02s.xml">
       <configuration name="SocialNetworkTest.testGuessFollowsGraphTextContainsNoUsername" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="SocialNetworkTest_testGuessFollowsGraphTextContainsNoUsername - 2020.04.30 at 17h 27m 49s.xml">
+      <configuration name="SocialNetworkTest.testGuessFollowsGraphTextContainsNoUsername" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SocialNetworkTest_testGuessFollowsGraphTextContainsCaseInsensitiveUsername - 2020.04.30 at 17h 27m 52s.xml">
+      <configuration name="SocialNetworkTest.testGuessFollowsGraphTextContainsCaseInsensitiveUsername" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SocialNetworkTest_testInfluencers - 2020.04.30 at 18h 55m 22s.xml">
+      <configuration name="SocialNetworkTest.testInfluencers" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SocialNetworkTest_testInfluencers - 2020.04.30 at 18h 56m 42s.xml">
+      <configuration name="SocialNetworkTest.testInfluencers" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SocialNetworkTest_testInfluencers - 2020.04.30 at 19h 11m 53s.xml">
+      <configuration name="SocialNetworkTest.testInfluencers" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="55723000" />
+    <option name="totallyTimeSpent" value="60614000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1440" y="-745" width="2560" height="1440" extended-state="0" />
@@ -666,12 +680,17 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/test/twitter/SocialNetworkTest.java</url>
-          <line>84</line>
+          <line>133</line>
           <properties />
-          <option name="timeStamp" value="15" />
+          <option name="timeStamp" value="18" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="JUnit">
+        <watch expression="&quot;MICHAEL&quot;.compareTo(&quot;FRANCIS&quot;)" language="JAVA" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -696,6 +715,16 @@
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="watch">
+      <expression>
+        <expression-string>&quot;MICHAEL&quot;.compareTo(&quot;FRANCIS&quot;)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>&quot;&quot;</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>text.length()</expression-string>
         <language-id>JAVA</language-id>
@@ -860,19 +889,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/src.zip!/java/lang/String.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="621" column="15" selection-start-line="621" selection-start-column="15" selection-end-line="621" selection-end-column="15" />
-          <folding>
-            <element signature="e#22786#22787#0" expanded="true" />
-            <element signature="e#22821#22822#0" expanded="true" />
-            <element signature="e#23072#23073#0" expanded="true" />
-            <element signature="e#23112#23113#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/twitter/exception/NullTimestampException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -953,13 +969,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/src.zip!/java/util/Map.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="138" column="8" selection-start-line="138" selection-start-column="8" selection-end-line="138" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/src.zip!/java/util/Set.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="250">
@@ -977,7 +986,7 @@
     <entry file="file://$PROJECT_DIR$/test/twitter/FilterTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1483">
-          <caret line="450" column="5" lean-forward="true" selection-start-line="450" selection-start-column="5" selection-end-line="450" selection-end-column="5" />
+          <caret line="450" column="5" selection-start-line="450" selection-start-column="5" selection-end-line="450" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -997,7 +1006,7 @@
     <entry file="file://$PROJECT_DIR$/src/twitter/exception/UnqualifiedUsernameException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
-          <caret line="2" column="29" lean-forward="true" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
+          <caret line="2" column="29" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
         </state>
       </provider>
     </entry>
@@ -1011,7 +1020,7 @@
     <entry file="file://$PROJECT_DIR$/src/twitter/Filter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="704">
-          <caret line="167" lean-forward="true" selection-start-line="167" selection-end-line="167" />
+          <caret line="167" selection-start-line="167" selection-end-line="167" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#3924#3931#0" expanded="true" />
@@ -1022,19 +1031,49 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/twitter/SocialNetwork.java">
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/src.zip!/java/util/Map.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="517">
-          <caret line="49" column="44" selection-start-line="49" selection-start-column="44" selection-end-line="49" selection-end-column="44" />
+        <state relative-caret-position="116">
+          <caret line="239" column="6" selection-start-line="239" selection-start-column="6" selection-end-line="239" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.classpath">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/src.zip!/java/lang/String.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="338">
+          <caret line="1152" column="15" selection-start-line="1152" selection-start-column="15" selection-end-line="1152" selection-end-column="15" />
+          <folding>
+            <element signature="e#22786#22787#0" expanded="true" />
+            <element signature="e#22821#22822#0" expanded="true" />
+            <element signature="e#23072#23073#0" expanded="true" />
+            <element signature="e#23112#23113#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/twitter/SocialNetworkTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="551">
+        <state relative-caret-position="17">
           <caret line="86" column="72" selection-start-line="86" selection-start-column="72" selection-end-line="86" selection-end-column="72" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/twitter/SocialNetwork.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="118" column="32" selection-start-line="118" selection-start-column="32" selection-end-line="118" selection-end-column="32" />
+          <folding>
+            <element signature="e#3328#3345#0" expanded="true" />
+            <element signature="e#4475#4502#0" expanded="true" />
           </folding>
         </state>
       </provider>

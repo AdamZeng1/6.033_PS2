@@ -116,6 +116,25 @@ public class SocialNetworkTest {
 		assertTrue("expected empty list", influencers.isEmpty());
 	}
 
+
+	private static final Set<String> firstUsersGroup = new HashSet<>(Arrays.asList("JHONASON", "FRANCIS", "CHRISTY", "JUDY", "MICHAEL"));
+	private static final Set<String> secondUsersGroup = new HashSet<>(Arrays.asList("GACHER", "JHONASON", "TIGER", "FIAS", "LUMIA"));
+	private static final Set<String> thirdUsersGroup = new HashSet<>(Arrays.asList("KIA", "FRANCIS", "BILL", "MICHAEL", "JHONASON"));
+
+	// covers followsGraph contain two author and each contain five followed users
+	@Test
+	public void testInfluencers() {
+		Map<String, Set<String>> followsGraph = new HashMap<>();
+		followsGraph.put("ADAM", firstUsersGroup);
+		followsGraph.put("CHRIS", secondUsersGroup);
+		followsGraph.put("SIA", thirdUsersGroup);
+
+		List<String> influencers = SocialNetwork.influencers(followsGraph);
+
+		List<String> expectedInfluencers = Arrays.asList("JHONASON", "FRANCIS", "MICHAEL", "BILL", "CHRISTY", "FIAS", "GACHER", "JUDY", "KIA", "LUMIA", "TIGER");
+		assertEquals(expectedInfluencers, influencers);
+	}
+
 	/*
 	 * Warning: all the tests you write here must be runnable against any
 	 * SocialNetwork class that follows the spec. It will be run against several
