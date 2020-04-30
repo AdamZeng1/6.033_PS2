@@ -58,7 +58,7 @@ public class Extract {
 		return mentionedUsernames;
 	}
 
-	private static Set<String> getMentionedUsersOfSingleTweet(Tweet tweet) {
+	public static Set<String> getMentionedUsersOfSingleTweet(Tweet tweet) {
 		Set<String> mentionedUsernames = new HashSet<>();
 		List<Integer> locationOfAtSymbol = getLocationOfAtSymbol(tweet);
 		String text = tweet.getText();

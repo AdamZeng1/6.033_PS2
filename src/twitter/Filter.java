@@ -49,7 +49,7 @@ public class Filter {
 		return result;
 	}
 
-	private static boolean isRequiredUsername(String username) {
+	public static boolean isRequiredUsername(String username) {
 		for (int i = 0; i < username.length(); i++) {
 			if (!isRequiredCharacter(username.charAt(i))) {
 				return false;
@@ -127,10 +127,9 @@ public class Filter {
 				throw new NullOrEmptyTextOfTweetException("text of tweet is empty string");
 			}
 			List<String> splitedWords = getWordsFromText(text);
-//			if (isWordsNullOrEmpty(splitedWords)) {
-//				throw new NullOrEmptyWordException("text of tweet is empty string");
-//			}
 			Set<String> wordsOfText = new HashSet<String>(splitedWords);
+			wordsOfText = convertToUppercase(wordsOfText);
+			wordsSet = convertToUppercase(wordsSet);
 			Set<String> intersection = new HashSet<String>(wordsOfText); // use the copy constructor
 			intersection.retainAll(wordsSet);
 			if (!intersection.isEmpty()) {
@@ -183,6 +182,13 @@ public class Filter {
 		return word;
 	}
 
+	public static Set<String> convertToUppercase(Set<String> words) {
+		Set<String> result = new HashSet<>();
+		for (String word : words) {
+			result.add(word.toUpperCase());
+		}
+		return result;
+	}
 	/* Copyright (c) 2007-2016 MIT 6.005 course staff, all rights reserved.
 	 * Redistribution of original or derived work requires explicit permission.
 	 * Don't post any of this code on the web or to a public Github repository.
