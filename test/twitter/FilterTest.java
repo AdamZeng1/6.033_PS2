@@ -1,11 +1,9 @@
 package twitter;
 
-import twitter.exception.NullOrEmptyAuthorException;
+import twitter.exception.*;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
-import twitter.exception.NullTimestampException;
-import twitter.exception.UnqualifiedUsernameException;
 
 import java.time.Instant;
 import java.util.Arrays;
@@ -47,6 +45,22 @@ public class FilterTest {
 	 * start or end is null
 	 * start or end > current
 	 * start or end < 1970.1.1 00:00:00
+	 *
+	 * ------------------------------------------------------
+	 * containing
+	 * partition of List<String> words
+	 * word is empty string e.g. ""
+	 * word is null
+	 * word contains space characters e.g. "a cd c"
+	 *
+	 * partition of List<Tweet> tweets
+	 * text of tweet is null
+	 * text of tweet is empty string
+	 * text of tweet doesn't contain the word
+	 * one text of tweet contains several same words
+	 * one text of tweet contain a word
+	 * one text of tweet contain different words
+	 *
 	 *
 	 */
 
@@ -323,13 +337,126 @@ public class FilterTest {
 
 	}
 
+	private static final Instant d31 = Instant.parse("1972-03-01T00:45:00Z");
+	private static final Instant d32 = Instant.parse("1971-01-01T00:00:00Z");
+
+	private static final Tweet tweet31 = new Tweet(31, "Adam", "is it reasonable to talk about rivest so much?", d31);
+	private static final Tweet tweet32 = new Tweet(32, "Chris", "rivest talk in 30 minutes #hype", d32);
+
 	@Test
-	public void testContaining() {
-		List<Tweet> containing = Filter.containing(Arrays.asList(tweet1, tweet2), Arrays.asList("talk"));
+	public void testContaining() throws NullOrEmptyWordException, NullOrEmptyTextOfTweetException {
+		List<Tweet> containing = Filter.containing(Arrays.asList(tweet31, tweet32), Arrays.asList("talk", "about", "minutes"));
 
 		assertFalse("expected non-empty list", containing.isEmpty());
-		assertTrue("expected list to contain tweets", containing.containsAll(Arrays.asList(tweet1, tweet2)));
-		assertEquals("expected same order", 0, containing.indexOf(tweet1));
+		assertTrue("expected list to contain tweets", containing.containsAll(Arrays.asList(tweet31, tweet32)));
+		assertEquals("expected same order", 0, containing.indexOf(tweet31));
+	}
+
+	private static final Instant d33 = Instant.parse("1972-03-01T00:45:00Z");
+	private static final Instant d34 = Instant.parse("1971-01-01T00:00:00Z");
+
+	private static final Tweet tweet33 = new Tweet(33, "Adam", null, d33);
+	private static final Tweet tweet34 = new Tweet(34, "Chris", "rivest talk in 30 minutes #hype", d34);
+
+	// covers text of string is null
+	@Test
+	public void testContainingTextOfTweetIsNull() throws NullOrEmptyWordException, NullOrEmptyTextOfTweetException {
+		exceptionRule.expect(NullPointerException.class);
+		List<Tweet> containing = Filter.containing(Arrays.asList(tweet33, tweet34), Arrays.asList("talk"));
+
+	}
+
+	private static final Instant d35 = Instant.parse("1972-03-01T00:45:00Z");
+	private static final Instant d36 = Instant.parse("1971-01-01T00:00:00Z");
+
+	private static final Tweet tweet35 = new Tweet(35, "Adam", "", d35);
+	private static final Tweet tweet36 = new Tweet(36, "Chris", "rivest talk in 30 minutes #hype", d36);
+
+	// covers text of string is empty string
+	@Test
+	public void testContainingTextOfTweetIsEmptyString() throws NullOrEmptyWordException, NullOrEmptyTextOfTweetException {
+		exceptionRule.expect(NullOrEmptyTextOfTweetException.class);
+		exceptionRule.expectMessage("text of tweet is empty string");
+		List<Tweet> containing = Filter.containing(Arrays.asList(tweet35, tweet36), Arrays.asList("talk"));
+
+	}
+
+	private static final Instant d37 = Instant.parse("1972-03-01T00:45:00Z");
+	private static final Instant d38 = Instant.parse("1971-01-01T00:00:00Z");
+
+	private static final Tweet tweet37 = new Tweet(37, "Adam", "is it reasonable to talk about rivest so much?", d37);
+	private static final Tweet tweet38 = new Tweet(38, "Chris", "rivest talk in 30 minutes #hype", d38);
+
+	// covers text of string doesn't contain word
+	@Test
+	public void testContainingTextOfTweetContainNoWord() throws NullOrEmptyWordException, NullOrEmptyTextOfTweetException {
+		List<Tweet> containing = Filter.containing(Arrays.asList(tweet37, tweet38), Arrays.asList("greatest", "wonderful"));
+
+		assertTrue("expected non-empty list", containing.isEmpty());
+	}
+
+	private static final Instant d39 = Instant.parse("1972-03-01T00:45:00Z");
+	private static final Instant d40 = Instant.parse("1971-01-01T00:00:00Z");
+
+	private static final Tweet tweet39 = new Tweet(39, "Adam", "is it reasonable to talk about rivest so much?", d39);
+	private static final Tweet tweet40 = new Tweet(40, "Chris", "rivest talk in 30 minutes #hype", d40);
+
+	// covers text of string contain one word
+	@Test
+	public void testContainingTextOfTweetContainOneWord() throws NullOrEmptyWordException, NullOrEmptyTextOfTweetException {
+		List<Tweet> containing = Filter.containing(Arrays.asList(tweet39, tweet40), Arrays.asList("much"));
+
+		assertFalse("expected non-empty list", containing.isEmpty());
+		assertTrue("expected list to contain tweets", containing.containsAll(Arrays.asList(tweet39)));
+		assertEquals("expected same order", 0, containing.indexOf(tweet39));
+	}
+
+	private static final Instant d41 = Instant.parse("1972-03-01T00:45:00Z");
+	private static final Instant d42 = Instant.parse("1971-01-01T00:00:00Z");
+
+	private static final Tweet tweet41 = new Tweet(39, "Adam", "is it reasonable to talk about rivest so much? yes, You should talk to him.", d41);
+	private static final Tweet tweet42 = new Tweet(40, "Chris", "rivest talk in 30 minutes #hype", d42);
+
+	// covers text of string contain several same words
+	@Test
+	public void testContainingTextOfTweetContainSeveralSameWords() throws NullOrEmptyWordException, NullOrEmptyTextOfTweetException {
+		List<Tweet> containing = Filter.containing(Arrays.asList(tweet41, tweet42), Arrays.asList("talk"));
+
+		assertFalse("expected non-empty list", containing.isEmpty());
+		assertTrue("expected list to contain tweets", containing.containsAll(Arrays.asList(tweet41, tweet42)));
+		assertEquals("expected same order", 0, containing.indexOf(tweet41));
+	}
+
+	private static final Instant d43 = Instant.parse("1972-03-01T00:45:00Z");
+	private static final Instant d44 = Instant.parse("1971-01-01T00:00:00Z");
+
+	private static final Tweet tweet43 = new Tweet(43, "Adam", "is it reasonable to talk about rivest so much? yes, You should talk to him.", d43);
+	private static final Tweet tweet44 = new Tweet(44, "Chris", "rivest talk in 30 minutes #hype", d44);
+
+	// covers text of string contain null
+	@Test
+	public void testContainingWordsContainNull() throws NullOrEmptyWordException, NullOrEmptyTextOfTweetException {
+		exceptionRule.expect(NullOrEmptyWordException.class);
+		exceptionRule.expectMessage("words contain null or empty string");
+		List<Tweet> containing = Filter.containing(Arrays.asList(tweet43, tweet44), Arrays.asList(null, null));
+
+	}
+
+	// covers word contain empty string
+	@Test
+	public void testContainingWordsContainEmptyString() throws NullOrEmptyWordException, NullOrEmptyTextOfTweetException {
+		exceptionRule.expect(NullOrEmptyWordException.class);
+		exceptionRule.expectMessage("words contain null or empty string");
+		List<Tweet> containing = Filter.containing(Arrays.asList(tweet1, tweet2), Arrays.asList(""));
+	}
+
+	// covers word contain empty characters
+	@Test
+	public void testContainingWordsContainEmptyCharacters() throws NullOrEmptyWordException, NullOrEmptyTextOfTweetException {
+		exceptionRule.expect(NullOrEmptyWordException.class);
+		exceptionRule.expectMessage("words contain null or empty string");
+		List<Tweet> containing = Filter.containing(Arrays.asList(tweet1, tweet2), Arrays.asList("a bc e"));
+
 	}
 
 	/*

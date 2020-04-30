@@ -42,6 +42,7 @@ public class ExtractTest {
 	 * case-insensitive @Adam and @aDam exist in the same text
 	 * text.length = 0 | text.length > 0 | text.length < 0
 	 *
+	 *
 	 */
 
 	private static final Instant d1 = Instant.parse("2016-02-17T10:00:00Z");

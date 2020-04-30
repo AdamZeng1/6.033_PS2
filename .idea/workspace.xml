@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ef1e3c07-b570-4aab-950f-53d1fec490ad" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/twitter/exception/NullTimestampException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/twitter/exception/NullOrEmptyTextOfTweetException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/twitter/exception/NullOrEmptyWordException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/twitter/exception/WordContainUnemptyCharaterException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/twitter/Filter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/twitter/Filter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/twitter/ExtractTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/twitter/ExtractTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/twitter/FilterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/twitter/FilterTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
@@ -26,7 +29,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/twitter/Extract.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="976">
+            <state relative-caret-position="524">
               <caret line="115" column="4" selection-start-line="115" selection-start-column="4" selection-end-line="115" selection-end-column="4" />
             </state>
           </provider>
@@ -35,8 +38,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/twitter/ExtractTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="32" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
+            <state relative-caret-position="-1417">
+              <caret line="42" column="58" selection-start-line="42" selection-start-column="58" selection-end-line="42" selection-end-column="58" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -44,10 +50,14 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/twitter/Filter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1088">
-              <caret line="100" column="22" selection-start-line="100" selection-start-column="22" selection-end-line="100" selection-end-column="22" />
+            <state relative-caret-position="204">
+              <caret line="115" column="45" selection-start-line="115" selection-start-column="45" selection-end-line="115" selection-end-column="45" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#3924#3931#0" expanded="true" />
+                <element signature="e#4106#4114#0" expanded="true" />
+                <element signature="e#4204#4212#0" expanded="true" />
+                <element signature="e#4573#4581#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -56,10 +66,85 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test/twitter/FilterTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1045">
-              <caret line="322" column="45" selection-start-line="322" selection-start-column="45" selection-end-line="322" selection-end-column="45" />
+            <state relative-caret-position="726">
+              <caret line="455" column="53" selection-start-line="455" selection-start-column="53" selection-end-line="455" selection-end-column="53" />
               <folding>
                 <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://$PROJECT_DIR$/lib/junit-4.12.jar!/org/junit/runners/model/FrameworkMethod.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="29" selection-start-line="29" selection-end-line="29" />
+              <folding>
+                <element signature="e#870#1063#0" expanded="true" />
+                <element signature="e#1062#1063#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://$PROJECT_DIR$/lib/junit-4.12.jar!/org/junit/internal/runners/model/ReflectiveCallable.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="15" selection-start-line="15" selection-end-line="15" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://$PROJECT_DIR$/lib/junit-4.12.jar!/org/junit/Assert.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="220">
+              <caret line="240" selection-start-line="240" selection-end-line="240" />
+              <folding>
+                <element signature="e#718#719#0" expanded="true" />
+                <element signature="e#765#766#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/twitter/exception/NullOrEmptyAuthorException.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="4" column="21" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/twitter/exception/WordContainUnemptyCharaterException.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="7" selection-start-line="7" selection-end-line="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/twitter/exception/NullOrEmptyWordException.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="4" column="21" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/twitter/exception/NullOrEmptyTextOfTweetException.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="5" column="21" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
+              <folding>
+                <element signature="e#150#151#0" expanded="true" />
+                <element signature="e#171#172#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -70,10 +155,15 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="34">
               <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-              <folding>
-                <element signature="e#130#131#0" expanded="true" />
-                <element signature="e#138#139#0" expanded="true" />
-              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/twitter/exception/UnqualifiedUsernameException.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -83,10 +173,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="578">
               <caret line="52" column="16" selection-start-line="52" selection-start-column="16" selection-end-line="52" selection-end-column="16" />
-              <folding>
-                <element signature="e#1536#1537#0" expanded="true" />
-                <element signature="e#1594#1595#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -107,8 +193,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/twitter/SocialNetwork.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+            <state relative-caret-position="745">
+              <caret line="61" selection-start-line="61" selection-end-line="61" />
             </state>
           </provider>
         </entry>
@@ -125,8 +211,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/twitter/Timespan.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="24" column="11" selection-start-line="24" selection-start-column="11" selection-end-line="24" selection-end-column="11" />
+            <state relative-caret-position="510">
+              <caret line="30" selection-start-line="30" selection-end-line="30" />
               <folding>
                 <element signature="e#876#877#0" expanded="true" />
                 <element signature="e#904#905#0" expanded="true" />
@@ -151,8 +237,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/twitter/Tweet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+            <state relative-caret-position="425">
+              <caret line="87" selection-start-line="87" selection-end-line="87" />
               <folding>
                 <element signature="e#1768#1769#0" expanded="true" />
                 <element signature="e#1795#1796#0" expanded="true" />
@@ -166,11 +252,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/src.zip!/java/util/Arrays.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="63359">
-              <caret line="3798" column="30" selection-start-line="3798" selection-start-column="30" selection-end-line="3798" selection-end-column="30" />
+            <state relative-caret-position="717">
+              <caret line="5002" column="32" selection-start-line="5002" selection-start-column="32" selection-end-line="5002" selection-end-column="32" />
               <folding>
                 <element signature="e#177013#177014#0" expanded="true" />
                 <element signature="e#177054#177055#0" expanded="true" />
+                <element signature="e#223144#223145#0" expanded="true" />
+                <element signature="e#223197#223198#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -179,7 +267,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/src.zip!/java/time/Instant.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4893">
+            <state relative-caret-position="19992">
               <caret line="1297" column="19" selection-start-line="1297" selection-start-column="19" selection-end-line="1297" selection-end-column="19" />
               <folding>
                 <element signature="e#27399#27400#0" expanded="true" />
@@ -223,8 +311,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/src.zip!/java/util/Set.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1326">
-              <caret line="101" column="12" selection-start-line="101" selection-start-column="12" selection-end-line="101" selection-end-column="12" />
+            <state relative-caret-position="250">
+              <caret line="272" column="12" selection-start-line="272" selection-start-column="12" selection-end-line="272" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -232,9 +320,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/src.zip!/java/lang/String.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="9928">
-              <caret line="633" column="19" selection-start-line="633" selection-start-column="19" selection-end-line="633" selection-end-column="19" />
+            <state relative-caret-position="250">
+              <caret line="621" column="15" selection-start-line="621" selection-start-column="15" selection-end-line="621" selection-end-column="15" />
               <folding>
+                <element signature="e#22786#22787#0" expanded="true" />
+                <element signature="e#22821#22822#0" expanded="true" />
                 <element signature="e#23072#23073#0" expanded="true" />
                 <element signature="e#23112#23113#0" expanded="true" />
               </folding>
@@ -254,6 +344,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>ins</find>
+      <find>NullOrEmptyWordException</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -264,13 +355,16 @@
       <list>
         <option value="$PROJECT_DIR$/src/twitter/SortByTimestamp.java" />
         <option value="$PROJECT_DIR$/src/twitter/TimeInterval.java" />
-        <option value="$PROJECT_DIR$/test/twitter/ExtractTest.java" />
         <option value="$PROJECT_DIR$/src/twitter/Extract.java" />
         <option value="$PROJECT_DIR$/test/exception/NullOrEmptyAuthorException.java" />
         <option value="$PROJECT_DIR$/test/exception/UnqualifiedUsernameException.java" />
         <option value="$PROJECT_DIR$/src/twitter/exception/UnqualifiedUsernameException.java" />
         <option value="$PROJECT_DIR$/src/twitter/exception/NullOrEmptyAuthorException.java" />
         <option value="$PROJECT_DIR$/src/twitter/exception/NullTimestampException.java" />
+        <option value="$PROJECT_DIR$/test/twitter/ExtractTest.java" />
+        <option value="$PROJECT_DIR$/src/twitter/exception/NullOrEmptyTextOfTweetException.java" />
+        <option value="$PROJECT_DIR$/src/twitter/exception/NullOrEmptyWordException.java" />
+        <option value="$PROJECT_DIR$/src/twitter/exception/WordContainUnemptyCharaterException.java" />
         <option value="$PROJECT_DIR$/src/twitter/Filter.java" />
         <option value="$PROJECT_DIR$/test/twitter/FilterTest.java" />
       </list>
@@ -295,6 +389,7 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -335,7 +430,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -364,7 +458,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.FilterTest.testInTimespanMultipleTweetsMultipleResultsTimestampIsNull">
+  <component name="RunManager" selected="JUnit.FilterTest">
     <configuration default="true" type="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method v="2">
@@ -377,7 +471,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FilterTest.testInTimespanMultipleTweetsMultipleResults" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="FilterTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ps2-tweets" />
       <extension name="coverage">
         <pattern>
@@ -387,14 +481,30 @@
       </extension>
       <option name="PACKAGE_NAME" value="twitter" />
       <option name="MAIN_CLASS_NAME" value="twitter.FilterTest" />
-      <option name="METHOD_NAME" value="testInTimespanMultipleTweetsMultipleResults" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FilterTest.testContainingTextOfTweetContainOneWord" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ps2-tweets" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="twitter.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="twitter" />
+      <option name="MAIN_CLASS_NAME" value="twitter.FilterTest" />
+      <option name="METHOD_NAME" value="testContainingTextOfTweetContainOneWord" />
       <option name="TEST_OBJECT" value="method" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FilterTest.testInTimespanMultipleTweetsMultipleResultsTimestampEqualsBoundary" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="FilterTest.testContainingTextOfTweetIsEmptyString" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ps2-tweets" />
       <extension name="coverage">
         <pattern>
@@ -404,14 +514,14 @@
       </extension>
       <option name="PACKAGE_NAME" value="twitter" />
       <option name="MAIN_CLASS_NAME" value="twitter.FilterTest" />
-      <option name="METHOD_NAME" value="testInTimespanMultipleTweetsMultipleResultsTimestampEqualsBoundary" />
+      <option name="METHOD_NAME" value="testContainingTextOfTweetIsEmptyString" />
       <option name="TEST_OBJECT" value="method" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FilterTest.testInTimespanMultipleTweetsMultipleResultsTimestampIsNull" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="FilterTest.testContainingTextOfTweetIsNull" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ps2-tweets" />
       <extension name="coverage">
         <pattern>
@@ -421,14 +531,14 @@
       </extension>
       <option name="PACKAGE_NAME" value="twitter" />
       <option name="MAIN_CLASS_NAME" value="twitter.FilterTest" />
-      <option name="METHOD_NAME" value="testInTimespanMultipleTweetsMultipleResultsTimestampIsNull" />
+      <option name="METHOD_NAME" value="testContainingTextOfTweetIsNull" />
       <option name="TEST_OBJECT" value="method" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FilterTest.testInTimespanMultipleTweetsMultipleResultsTimestampLatterThanEpoch" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="FilterTest.testContainingWordsContainEmptyCharacters" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ps2-tweets" />
       <extension name="coverage">
         <pattern>
@@ -438,24 +548,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="twitter" />
       <option name="MAIN_CLASS_NAME" value="twitter.FilterTest" />
-      <option name="METHOD_NAME" value="testInTimespanMultipleTweetsMultipleResultsTimestampLatterThanEpoch" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="FilterTest.testInTimespanMultipleTweetsMultipleResultsTimestampNotInOrder" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ps2-tweets" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="twitter.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="twitter" />
-      <option name="MAIN_CLASS_NAME" value="twitter.FilterTest" />
-      <option name="METHOD_NAME" value="testInTimespanMultipleTweetsMultipleResultsTimestampNotInOrder" />
+      <option name="METHOD_NAME" value="testContainingWordsContainEmptyCharacters" />
       <option name="TEST_OBJECT" value="method" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
       <method v="2">
@@ -489,11 +582,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.FilterTest.testInTimespanMultipleTweetsMultipleResultsTimestampIsNull" />
-        <item itemvalue="JUnit.FilterTest.testInTimespanMultipleTweetsMultipleResults" />
-        <item itemvalue="JUnit.FilterTest.testInTimespanMultipleTweetsMultipleResultsTimestampLatterThanEpoch" />
-        <item itemvalue="JUnit.FilterTest.testInTimespanMultipleTweetsMultipleResultsTimestampNotInOrder" />
-        <item itemvalue="JUnit.FilterTest.testInTimespanMultipleTweetsMultipleResultsTimestampEqualsBoundary" />
+        <item itemvalue="JUnit.FilterTest" />
+        <item itemvalue="JUnit.FilterTest.testContainingWordsContainEmptyCharacters" />
+        <item itemvalue="JUnit.FilterTest.testContainingTextOfTweetContainOneWord" />
+        <item itemvalue="JUnit.FilterTest.testContainingTextOfTweetIsEmptyString" />
+        <item itemvalue="JUnit.FilterTest.testContainingTextOfTweetIsNull" />
       </list>
     </recent_temporary>
   </component>
@@ -509,50 +602,52 @@
       <updated>1587715730418</updated>
       <workItem from="1587715737867" duration="22148000" />
       <workItem from="1587957936038" duration="8927000" />
-      <workItem from="1588064534139" duration="6641000" />
+      <workItem from="1588064534139" duration="7901000" />
+      <workItem from="1588125658901" duration="3673000" />
+      <workItem from="1588163706230" duration="6072000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="FilterTest_testWrittenByMultipleTweetsSingleResult - 2020.04.27 at 17h 24m 55s.xml">
-      <configuration name="FilterTest.testWrittenByMultipleTweetsSingleResult" configurationId="JUnit" />
+    <history-entry file="FilterTest_testContainingWordsContainEmptyCharacters - 2020.04.30 at 11h 38m 38s.xml">
+      <configuration name="FilterTest.testContainingWordsContainEmptyCharacters" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="FilterTest_testWrittenByMultipleTweetsUnqualifiedUsername - 2020.04.27 at 17h 28m 18s.xml">
-      <configuration name="FilterTest.testWrittenByMultipleTweetsUnqualifiedUsername" configurationId="JUnit" />
+    <history-entry file="FilterTest_testContainingTextOfTweetContainOneWord - 2020.04.30 at 11h 38m 41s.xml">
+      <configuration name="FilterTest.testContainingTextOfTweetContainOneWord" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="FilterTest_testWrittenByMultipleTweetsUnqualifiedUsername - 2020.04.27 at 17h 29m 03s.xml">
-      <configuration name="FilterTest.testWrittenByMultipleTweetsUnqualifiedUsername" configurationId="JUnit" />
+    <history-entry file="FilterTest_testContainingTextOfTweetContainOneWord - 2020.04.30 at 11h 39m 30s.xml">
+      <configuration name="FilterTest.testContainingTextOfTweetContainOneWord" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="FilterTest_testWrittenByMultipleTweetsCaseInsensitive - 2020.04.27 at 17h 29m 10s.xml">
-      <configuration name="FilterTest.testWrittenByMultipleTweetsCaseInsensitive" configurationId="JUnit" />
+    <history-entry file="FilterTest_testContainingTextOfTweetContainOneWord - 2020.04.30 at 12h 20m 58s.xml">
+      <configuration name="FilterTest.testContainingTextOfTweetContainOneWord" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="FilterTest_testWrittenByMultipleTweetsCaseInsensitive - 2020.04.27 at 17h 30m 00s.xml">
-      <configuration name="FilterTest.testWrittenByMultipleTweetsCaseInsensitive" configurationId="JUnit" />
+    <history-entry file="FilterTest_testContainingTextOfTweetContainOneWord - 2020.04.30 at 12h 22m 42s.xml">
+      <configuration name="FilterTest.testContainingTextOfTweetContainOneWord" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="FilterTest_testWrittenByMultipleTweetsCaseInsensitive - 2020.04.27 at 17h 30m 19s.xml">
-      <configuration name="FilterTest.testWrittenByMultipleTweetsCaseInsensitive" configurationId="JUnit" />
+    <history-entry file="FilterTest_testContainingTextOfTweetContainOneWord - 2020.04.30 at 12h 24m 36s.xml">
+      <configuration name="FilterTest.testContainingTextOfTweetContainOneWord" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="FilterTest_testWrittenByMultipleTweetsAuthorCaseInsensitive - 2020.04.27 at 17h 30m 23s.xml">
-      <configuration name="FilterTest.testWrittenByMultipleTweetsAuthorCaseInsensitive" configurationId="JUnit" />
+    <history-entry file="FilterTest_testContainingTextOfTweetContainOneWord - 2020.04.30 at 12h 25m 42s.xml">
+      <configuration name="FilterTest.testContainingTextOfTweetContainOneWord" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="FilterTest_testWrittenByMultipleTweetsUnqualifiedAuthor - 2020.04.27 at 17h 30m 26s.xml">
-      <configuration name="FilterTest.testWrittenByMultipleTweetsUnqualifiedAuthor" configurationId="JUnit" />
+    <history-entry file="FilterTest_testContainingWordsContainEmptyCharacters - 2020.04.30 at 12h 25m 53s.xml">
+      <configuration name="FilterTest.testContainingWordsContainEmptyCharacters" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="FilterTest_testWrittenByMultipleTweetsUnqualifiedAuthor - 2020.04.27 at 17h 30m 42s.xml">
-      <configuration name="FilterTest.testWrittenByMultipleTweetsUnqualifiedAuthor" configurationId="JUnit" />
+    <history-entry file="FilterTest_testContainingWordsContainEmptyCharacters - 2020.04.30 at 12h 26m 25s.xml">
+      <configuration name="FilterTest.testContainingWordsContainEmptyCharacters" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="FilterTest_testWrittenByMultipleTweetsUnqualifiedAuthor - 2020.04.27 at 17h 31m 26s.xml">
-      <configuration name="FilterTest.testWrittenByMultipleTweetsUnqualifiedAuthor" configurationId="JUnit" />
+    <history-entry file="FilterTest_testContainingWordsContainEmptyCharacters - 2020.04.30 at 12h 27m 32s.xml">
+      <configuration name="FilterTest.testContainingWordsContainEmptyCharacters" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37716000" />
+    <option name="totallyTimeSpent" value="48721000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1440" y="-745" width="2560" height="1440" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2104845" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21485306" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -562,7 +657,7 @@
       <window_info id="Learn" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.329927" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.329927" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -570,7 +665,7 @@
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.329927" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="10" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.329927" />
       <window_info anchor="bottom" id="Database Changes" order="11" />
       <window_info anchor="bottom" id="Version Control" order="12" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -588,12 +683,16 @@
     <option name="version" value="1" />
   </component>
   <component name="XDebuggerManager">
-    <watches-manager>
-      <configuration name="JUnit">
-        <watch expression="text.lastIndexOf('@')" language="JAVA" />
-        <watch expression="text.length()" language="JAVA" />
-      </configuration>
-    </watches-manager>
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/test/twitter/FilterTest.java</url>
+          <line>406</line>
+          <properties />
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -681,13 +780,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/junit-4.12.jar!/org/junit/internal/runners/model/ReflectiveCallable.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/lib/hamcrest-core-1.3.jar!/org/hamcrest/CoreMatchers.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="297">
@@ -699,10 +791,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/twitter/ExtractTest.java">
+    <entry file="file://$PROJECT_DIR$/src/twitter/exception/WordContainUnemptyCharaterException.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="32" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
+        <state relative-caret-position="85">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/twitter/exception/NullOrEmptyWordException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="4" column="21" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/twitter/exception/UnqualifiedUsernameException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/junit-4.12.jar!/org/junit/rules/ExpectedException.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="52" column="16" selection-start-line="52" selection-start-column="16" selection-end-line="52" selection-end-column="16" />
         </state>
       </provider>
     </entry>
@@ -724,6 +837,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/twitter/Timespan.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="30" selection-start-line="30" selection-end-line="30" />
+          <folding>
+            <element signature="e#876#877#0" expanded="true" />
+            <element signature="e#904#905#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/src.zip!/java/util/Collections.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2312">
@@ -735,13 +859,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/src.zip!/java/util/Arrays.java">
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/src.zip!/java/time/Instant.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63359">
-          <caret line="3798" column="30" selection-start-line="3798" selection-start-column="30" selection-end-line="3798" selection-end-column="30" />
+        <state relative-caret-position="19992">
+          <caret line="1297" column="19" selection-start-line="1297" selection-start-column="19" selection-end-line="1297" selection-end-column="19" />
           <folding>
-            <element signature="e#177013#177014#0" expanded="true" />
-            <element signature="e#177054#177055#0" expanded="true" />
+            <element signature="e#27399#27400#0" expanded="true" />
+            <element signature="e#27429#27430#0" expanded="true" />
+            <element signature="e#58501#58502#0" expanded="true" />
+            <element signature="e#58551#58552#0" expanded="true" />
+            <element signature="e#58973#58974#0" expanded="true" />
+            <element signature="e#59023#59024#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -767,21 +895,61 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/src.zip!/java/util/Set.java">
+    <entry file="file://$PROJECT_DIR$/src/twitter/SocialNetwork.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1326">
-          <caret line="101" column="12" selection-start-line="101" selection-start-column="12" selection-end-line="101" selection-end-column="12" />
+        <state relative-caret-position="745">
+          <caret line="61" selection-start-line="61" selection-end-line="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/src.zip!/java/util/HashSet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="116" column="11" selection-start-line="116" selection-start-column="11" selection-end-line="116" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/twitter/Extract.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="524">
+          <caret line="115" column="4" selection-start-line="115" selection-start-column="4" selection-end-line="115" selection-end-column="4" />
         </state>
       </provider>
     </entry>
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/src.zip!/java/lang/String.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="9928">
-          <caret line="633" column="19" selection-start-line="633" selection-start-column="19" selection-end-line="633" selection-end-column="19" />
+        <state relative-caret-position="250">
+          <caret line="621" column="15" selection-start-line="621" selection-start-column="15" selection-end-line="621" selection-end-column="15" />
           <folding>
+            <element signature="e#22786#22787#0" expanded="true" />
+            <element signature="e#22821#22822#0" expanded="true" />
             <element signature="e#23072#23073#0" expanded="true" />
             <element signature="e#23112#23113#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/src.zip!/java/util/Set.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="272" column="12" selection-start-line="272" selection-start-column="12" selection-end-line="272" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/twitter/ExtractTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1417">
+          <caret line="42" column="58" selection-start-line="42" selection-start-column="58" selection-end-line="42" selection-end-column="58" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/twitter/exception/NullTimestampException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -792,31 +960,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/twitter/exception/UnqualifiedUsernameException.java">
+    <entry file="file://$PROJECT_DIR$/src/twitter/exception/NullOrEmptyTextOfTweetException.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        <state relative-caret-position="85">
+          <caret line="5" column="21" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
+          <folding>
+            <element signature="e#150#151#0" expanded="true" />
+            <element signature="e#171#172#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/twitter/Extract.java">
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/src.zip!/java/util/Arrays.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="976">
-          <caret line="115" column="4" selection-start-line="115" selection-start-column="4" selection-end-line="115" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/twitter/SocialNetwork.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+        <state relative-caret-position="717">
+          <caret line="5002" column="32" selection-start-line="5002" selection-start-column="32" selection-end-line="5002" selection-end-column="32" />
+          <folding>
+            <element signature="e#177013#177014#0" expanded="true" />
+            <element signature="e#177054#177055#0" expanded="true" />
+            <element signature="e#223144#223145#0" expanded="true" />
+            <element signature="e#223197#223198#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/twitter/Tweet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        <state relative-caret-position="425">
+          <caret line="87" selection-start-line="87" selection-end-line="87" />
           <folding>
             <element signature="e#1768#1769#0" expanded="true" />
             <element signature="e#1795#1796#0" expanded="true" />
@@ -826,68 +997,53 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/junit-4.12.jar!/org/junit/rules/ExpectedException.class">
+    <entry file="jar://$PROJECT_DIR$/lib/junit-4.12.jar!/org/junit/Assert.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="52" column="16" selection-start-line="52" selection-start-column="16" selection-end-line="52" selection-end-column="16" />
+        <state relative-caret-position="220">
+          <caret line="240" selection-start-line="240" selection-end-line="240" />
           <folding>
-            <element signature="e#1536#1537#0" expanded="true" />
-            <element signature="e#1594#1595#0" expanded="true" />
+            <element signature="e#718#719#0" expanded="true" />
+            <element signature="e#765#766#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/twitter/exception/NullTimestampException.java">
+    <entry file="jar://$PROJECT_DIR$/lib/junit-4.12.jar!/org/junit/internal/runners/model/ReflectiveCallable.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding>
-            <element signature="e#130#131#0" expanded="true" />
-            <element signature="e#138#139#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="204">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/twitter/Timespan.java">
+    <entry file="jar://$PROJECT_DIR$/lib/junit-4.12.jar!/org/junit/runners/model/FrameworkMethod.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="11" selection-start-line="24" selection-start-column="11" selection-end-line="24" selection-end-column="11" />
+        <state relative-caret-position="340">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
           <folding>
-            <element signature="e#876#877#0" expanded="true" />
-            <element signature="e#904#905#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/src.zip!/java/time/Instant.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4893">
-          <caret line="1297" column="19" selection-start-line="1297" selection-start-column="19" selection-end-line="1297" selection-end-column="19" />
-          <folding>
-            <element signature="e#27399#27400#0" expanded="true" />
-            <element signature="e#27429#27430#0" expanded="true" />
-            <element signature="e#58501#58502#0" expanded="true" />
-            <element signature="e#58551#58552#0" expanded="true" />
-            <element signature="e#58973#58974#0" expanded="true" />
-            <element signature="e#59023#59024#0" expanded="true" />
+            <element signature="e#870#1063#0" expanded="true" />
+            <element signature="e#1062#1063#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/twitter/Filter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1088">
-          <caret line="100" column="22" selection-start-line="100" selection-start-column="22" selection-end-line="100" selection-end-column="22" />
+        <state relative-caret-position="204">
+          <caret line="115" column="45" selection-start-line="115" selection-start-column="45" selection-end-line="115" selection-end-column="45" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#3924#3931#0" expanded="true" />
+            <element signature="e#4106#4114#0" expanded="true" />
+            <element signature="e#4204#4212#0" expanded="true" />
+            <element signature="e#4573#4581#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/twitter/FilterTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1045">
-          <caret line="322" column="45" selection-start-line="322" selection-start-column="45" selection-end-line="322" selection-end-column="45" />
+        <state relative-caret-position="726">
+          <caret line="455" column="53" selection-start-line="455" selection-start-column="53" selection-end-line="455" selection-end-column="53" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

@@ -1,12 +1,9 @@
 package twitter;
 
-import twitter.exception.NullOrEmptyAuthorException;
-import twitter.exception.NullTimestampException;
-import twitter.exception.UnqualifiedUsernameException;
+import twitter.exception.*;
 
 import java.time.Instant;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 /**
  * Filter consists of methods that filter a list of tweets for those matching a
@@ -114,8 +111,76 @@ public class Filter {
 	 * so "Obama" is the same as "obama".  The returned tweets are in the
 	 * same order as in the input list.
 	 */
-	public static List<Tweet> containing(List<Tweet> tweets, List<String> words) {
-		throw new RuntimeException("not implemented");
+	public static List<Tweet> containing(List<Tweet> tweets, List<String> words) throws NullOrEmptyWordException, NullOrEmptyTextOfTweetException {
+		if (isWordsNullOrEmpty(words)) {
+			throw new NullOrEmptyWordException("words contain null or empty string");
+		}
+
+		List<Tweet> result = new ArrayList<Tweet>();
+		// convert the List<String> words to Set<String>
+		Set<String> wordsSet = new HashSet<String>(words);
+
+
+		for (Tweet tweet : tweets) {
+			String text = tweet.getText();
+			if (text.isEmpty()) {
+				throw new NullOrEmptyTextOfTweetException("text of tweet is empty string");
+			}
+			List<String> splitedWords = getWordsFromText(text);
+//			if (isWordsNullOrEmpty(splitedWords)) {
+//				throw new NullOrEmptyWordException("text of tweet is empty string");
+//			}
+			Set<String> wordsOfText = new HashSet<String>(splitedWords);
+			Set<String> intersection = new HashSet<String>(wordsOfText); // use the copy constructor
+			intersection.retainAll(wordsSet);
+			if (!intersection.isEmpty()) {
+				result.add(tweet);
+			}
+		}
+
+		return result;
+	}
+
+	private static boolean isWordsNullOrEmpty(List<String> words) throws NullOrEmptyWordException {
+		for (String word : words) {
+			if (word == null || word.isEmpty()) {
+				return true;
+			}
+			for (Character character : word.toCharArray()) {
+				if (character == ' ') {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+	private static List<String> getWordsFromText(String text) {
+		List<String> result = new ArrayList<>();
+		String[] splitedWords = text.trim().split("\\s+");
+		int length = splitedWords.length;
+		if (length == 0) {
+			return null;
+		}
+		for (String word : splitedWords) {
+			String wordAfterExtracting = extractWord(word);
+			result.add(wordAfterExtracting);
+		}
+
+		return result;
+	}
+
+	private static String extractWord(String word) {
+		int length = word.length();
+		char first = word.charAt(0);
+		char last = word.charAt(length - 1);
+		if (!((first < 'z' && first > 'a') || (first < 'Z') && first > 'A')) {
+			word = word.substring(1);
+		}
+		if (!((last < 'z' && last > 'a') || (last < 'Z') && last > 'A')) {
+			word = word.substring(0, length - 1);
+		}
+		return word;
 	}
 
 	/* Copyright (c) 2007-2016 MIT 6.005 course staff, all rights reserved.
