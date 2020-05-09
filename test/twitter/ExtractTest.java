@@ -73,8 +73,8 @@ public class ExtractTest {
 	@Test
 	public void testGetTimespanTwoTweetsAreBothUnixEpochTime() {
 		Timespan timespan = Extract.getTimespan(Arrays.asList(tweet1, tweet3, tweet2, tweet4));
-		assertEquals("expected start", d7, timespan.getStart());
-		assertEquals("expected end", d8, timespan.getEnd());
+		assertEquals("expected start", d3, timespan.getStart());
+		assertEquals("expected end", d4, timespan.getEnd());
 	}
 
 	private static final Instant d5 = Instant.parse("2022-01-01T11:45:12Z");

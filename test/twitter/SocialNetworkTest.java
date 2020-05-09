@@ -108,6 +108,33 @@ public class SocialNetworkTest {
 		assertTrue("expected value", followsGraph.get("ADAM").contains("SHELEY"));
 	}
 
+	private static final Instant d21 = Instant.parse("2016-02-17T10:00:00Z");
+	private static final Instant d22 = Instant.parse("2016-02-17T11:00:00Z");
+	private static final Instant d23 = Instant.parse("2016-02-17T11:00:00Z");
+
+	private static final Tweet tweet21 = new Tweet(1, "Adam", "is it reasonable @Michael to @Sheley talk about rivest so much?", d21);
+	private static final Tweet tweet22 = new Tweet(2, "ChRis", "rivest talk in @Francis 30 @sHeLey minutes #hype", d22);
+	private static final Tweet tweet23 = new Tweet(3, "Sheley", "rivest talk in @Adam 30 @ChRis minutes #hype", d23);
+
+
+	// covers text contain same case-insensitive username e.g @Adam @adAm
+	@Test
+	public void testGuessFollowsGraphTextContainsTriadicClosurePair() throws UnqualifiedUsernameException {
+		Map<String, Set<String>> followsGraph = SocialNetwork.guessFollowsGraph(Arrays.asList(tweet21, tweet22, tweet23));
+
+		assertEquals("expected size", 3, followsGraph.size());
+		assertTrue("expected key", followsGraph.containsKey("ADAM"));
+		assertTrue("expected key", followsGraph.containsKey("CHRIS"));
+		assertTrue("expected key", followsGraph.containsKey("SHELEY"));
+		assertTrue("expected value", followsGraph.get("CHRIS").contains("SHELEY"));
+		assertTrue("expected value", followsGraph.get("CHRIS").contains("FRANCIS"));
+		assertTrue("expected value", followsGraph.get("ADAM").contains("MICHAEL"));
+		assertTrue("expected value", followsGraph.get("ADAM").contains("SHELEY"));
+		assertTrue("expected value", followsGraph.get("ADAM").contains("CHRIS"));
+		assertTrue("expected value", followsGraph.get("CHRIS").contains("ADAM"));
+
+	}
+
 	@Test
 	public void testInfluencersEmpty() {
 		Map<String, Set<String>> followsGraph = new HashMap<>();

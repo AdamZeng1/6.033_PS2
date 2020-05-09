@@ -1,5 +1,6 @@
 package twitter;
 
+import javafx.util.Pair;
 import twitter.exception.UnqualifiedUsernameException;
 
 import java.util.*;
@@ -59,9 +60,104 @@ public class SocialNetwork {
 				result.put(author, mentionedUsers);
 			}
 		}
+		addMutualFollowers(result);
 		return result;
 
 	}
+
+
+	private static Map<String, Set<String>> addMutualFollowers(Map<String, Set<String>> followGraphWithoutMutualFollowers) {
+		Map<String, Set<String>> peopleFollowingPerson = getPeopleFollowingPerson(followGraphWithoutMutualFollowers);
+		Map<String, Set<String>> mutualFollowers = getMutualFollowers(peopleFollowingPerson, followGraphWithoutMutualFollowers);
+		List<Pair<String, String>> triadicClosurePeople = getTriadicClosurePeople(mutualFollowers);
+		Set<String> peopleFollowedByPerson;
+		for (Pair<String, String> triadicClosurePerson : triadicClosurePeople) {
+			String personKey = triadicClosurePerson.getKey();
+			String personValue = triadicClosurePerson.getValue();
+			peopleFollowedByPerson = followGraphWithoutMutualFollowers.get(personKey);
+			peopleFollowedByPerson.add(personValue);
+		}
+		return followGraphWithoutMutualFollowers;
+	}
+
+	/**
+	 * @param peopleFollowedByPerson Key: A , Value: people who are followed by A.
+	 * @return Key: A , Value: people who follow A.
+	 */
+	private static Map<String, Set<String>> getPeopleFollowingPerson(Map<String, Set<String>> peopleFollowedByPerson) {
+		Map<String, Set<String>> result = new HashMap<>(1000);
+		Set<String> peopleFollowedBySecondSpecificPerson;
+		Set<String> peopleFollowingFirstSpecificPerson;
+		// traversal followedOfPeople
+		for (String firstSpecificPeople : peopleFollowedByPerson.keySet()) {
+			peopleFollowingFirstSpecificPerson = new HashSet<>(1000);
+			for (String secondSpecificPeople : peopleFollowedByPerson.keySet()) {
+				if (secondSpecificPeople.equals(firstSpecificPeople)) {
+					continue;
+				}
+				peopleFollowedBySecondSpecificPerson = peopleFollowedByPerson.get(secondSpecificPeople);
+				if (peopleFollowedBySecondSpecificPerson.contains(firstSpecificPeople)) {
+					peopleFollowingFirstSpecificPerson.add(secondSpecificPeople);
+				}
+			}
+			result.put(firstSpecificPeople, peopleFollowingFirstSpecificPerson);
+		}
+		return result;
+	}
+
+	/**
+	 * get the mutual follow relationship from peopleFollowingPerson, peopleFollowedByPerson
+	 *
+	 * @param peopleFollowingPerson  Key: A Value: people who are following A.
+	 * @param peopleFollowedByPerson Key: A Value: people who are followed by A.
+	 * @return Key: A Value: people who follow A and A follow people too.
+	 */
+	private static Map<String, Set<String>> getMutualFollowers(Map<String, Set<String>> peopleFollowingPerson, Map<String, Set<String>> peopleFollowedByPerson) {
+		Map<String, Set<String>> result = new HashMap<>();
+		Set<String> mutualFollowersOfSpecificPerson;
+		Set<String> peopleFollowingSpecificPerson;
+		Set<String> peopleFollowedBySpecificPerson;
+		for (String specificPeople : peopleFollowedByPerson.keySet()) {
+			peopleFollowingSpecificPerson = peopleFollowingPerson.get(specificPeople);
+			peopleFollowedBySpecificPerson = peopleFollowedByPerson.get(specificPeople);
+			mutualFollowersOfSpecificPerson = new HashSet<>(peopleFollowedBySpecificPerson);
+			mutualFollowersOfSpecificPerson.retainAll(peopleFollowingSpecificPerson);
+			result.put(specificPeople, mutualFollowersOfSpecificPerson);
+		}
+		return result;
+	}
+
+	/**
+	 * reference:https://en.wikipedia.org/wiki/Triadic_closure if A->B and B->A and B->C and C->B, A and C become Triadic Closure
+	 *
+	 * @param mutualFollowersByPerson Key: A Value: people who follow A and A follow people too.
+	 * @return Key: A Value: C | A and C become Triadic Closure
+	 */
+	public static List<Pair<String, String>> getTriadicClosurePeople(Map<String, Set<String>> mutualFollowersByPerson) {
+		List<Pair<String, String>> result = new ArrayList<>(1000);
+		Pair<String, String> specificMutualPair;
+		Set<String> mutualFollowersByFirstSpecificPerson;
+		Set<String> mutualFollowersBySecondSpecificPerson;
+		Set<String> intersectionBetweenTwoMutualFollowers;
+		for (String firstSpecificPerson : mutualFollowersByPerson.keySet()) {
+			mutualFollowersByFirstSpecificPerson = mutualFollowersByPerson.get(firstSpecificPerson);
+
+			for (String secondSpecificPerson : mutualFollowersByPerson.keySet()) {
+				if (firstSpecificPerson.equals(secondSpecificPerson)) {
+					continue;
+				}
+				mutualFollowersBySecondSpecificPerson = mutualFollowersByPerson.get(secondSpecificPerson);
+				intersectionBetweenTwoMutualFollowers = new HashSet<>(mutualFollowersByFirstSpecificPerson);
+				intersectionBetweenTwoMutualFollowers.retainAll(mutualFollowersBySecondSpecificPerson);
+				if (!mutualFollowersByFirstSpecificPerson.isEmpty()) {
+					specificMutualPair = new Pair<>(firstSpecificPerson, secondSpecificPerson);
+					result.add(specificMutualPair);
+				}
+			}
+		}
+		return result;
+	}
+
 
 	private static boolean isTweetAuthorQualified(List<Tweet> tweets) throws UnqualifiedUsernameException {
 		for (Tweet tweet : tweets) {
